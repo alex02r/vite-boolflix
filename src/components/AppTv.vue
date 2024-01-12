@@ -10,8 +10,11 @@ export default {
 </script>
 <template lang="">
     <div class="row">
-        <div class="col-12"><h1>SERIE TV</h1></div>
+        <div class="col-12"><h1>Serie TV</h1></div>
         <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
+            <div class="thumb">
+                <img :src="`http://image.tmdb.org/t/p/w500${series.poster_path}`" :alt="series.name">
+            </div>
             <ul class="list-unstyled">
                 <li>{{ series.name }}</li>
                 <li>{{ series.original_name }}</li>
