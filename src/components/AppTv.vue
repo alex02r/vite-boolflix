@@ -1,6 +1,10 @@
 <script>
+import AppVote from "./AppVote.vue";
 import { store } from "../store";
 export default {
+    components:{
+        AppVote
+    },
     data() {
         return {
             store
@@ -21,7 +25,9 @@ export default {
                 <li>
                     Lingua originale: <img class="flag" :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
                 </li>
-                <li>{{ series.vote_average }}</li>
+                <li>
+                    <AppVote :vote_value="series.vote_average"/>
+                </li>
             </ul>
         </div>
     </div>
