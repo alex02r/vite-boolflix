@@ -20,8 +20,14 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="row">
+    <div class="row my-3">
+        <div class="col-12">
+            <h1>Film</h1>
+        </div>
         <div class="col-4 col-md-3 col-lg-2" v-for="(film, index) in store.arrayFilms" :key="index">
+            <div class="thumb">
+                <img :src="`http://image.tmdb.org/t/p/w500${film.poster_path}`" :alt="film.title">
+            </div>
             <ul class="list-unstyled">
                 <li>{{ film.title }}</li>
                 <li>{{ film.original_title }}</li>
