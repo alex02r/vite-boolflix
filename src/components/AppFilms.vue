@@ -21,6 +21,7 @@ export default {
         getStarVote(vote){
             let stars = []
             let n = Math.floor(vote) / 2;
+            n = Math.round(n);
             for (let i = 0; i < n; i++) {
                 stars.push(1)
             }
@@ -29,6 +30,7 @@ export default {
         getStarEmpty(vote){
             let empty = [];
             let n = Math.floor(vote) / 2;
+            n = Math.round(n)
             let length = 5 - n;
             for (let i = 0; i < length; i++) {
                 empty.push(0)
@@ -58,10 +60,10 @@ export default {
                     <!-- {{ film.vote_average }} -->
                     <div class="star-container">
                         <div class="star full" v-for="(star, index) in getStarVote(film.vote_average)" :key="index">
-                            X
+                            &#9733;
                         </div>
                         <div class="star" v-for="(empty, index) in getStarEmpty(film.vote_average)" :key="index">
-                            O
+                            &#9734;
                         </div>
                     </div>
                 </li>
@@ -72,5 +74,7 @@ export default {
 <style lang="scss" scoped>
     @use '../styles/partials/variables' as *;
     @use '../styles/generals.scss';
-    
+    .star-container{
+        display: flex;
+    }
 </style>
