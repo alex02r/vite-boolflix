@@ -37,7 +37,6 @@ export default {
                 <li>{{ film.title }}</li>
                 <li>{{ film.original_title }}</li>
                 <li>
-                    <!-- {{ film.original_language }} -->
                     Lingua originale: <img class="flag" :src="getFlag(film.original_language)" :alt="film.original_language">
                 </li>
                 <li>
