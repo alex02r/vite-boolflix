@@ -17,13 +17,21 @@ export default {
     }
   },
   methods: {
-    //function for request list of film at API
+    //function for request list of film and tv series at API
     search_title(){
+      //film list
       store.arrayFilms = []
       axios.get(`${store.urlFilms}${store.APIKey}&query=${store.searchValue}&language=it-IT`).then( response =>{
         /* console.log(response.data.results); */
         store.arrayFilms = [...response.data.results];
-        console.log(store.arrayFilms);
+      })
+
+      //serie tv list
+      store.arrayTv = []
+      axios.get(`${store.urlTv}${store.APIKey}&language=it-IT&query=${store.searchValue}`).then( data =>{
+        /* console.log(response.data.results); */
+        store.arrayTv = [...data.data.results];
+        console.log(store.arrayTv);
       })
     }
   },
