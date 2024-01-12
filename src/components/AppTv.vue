@@ -1,11 +1,26 @@
 <script>
+import { store } from "../store";
 export default {
-    
+    data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 <template lang="">
-    <div>
-        
+    <div class="row">
+        <div class="col-12"><h1>SERIE TV</h1></div>
+        <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
+            <ul class="list-unstyled">
+                <li>{{ series.name }}</li>
+                <li>{{ series.original_name }}</li>
+                <li>
+                    Lingua originale: <img class="flag" :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
+                </li>
+                <li>{{ series.vote_average }}</li>
+            </ul>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>

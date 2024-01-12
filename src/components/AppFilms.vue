@@ -37,7 +37,5 @@ export default {
 <style lang="scss" scoped>
     @use '../styles/partials/variables' as *;
     @use '../styles/generals.scss';
-    .flag{
-        width: 20px;
-    }
+    
 </style>
