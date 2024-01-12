@@ -3,10 +3,11 @@ import { store } from "../store";
 export default {
     data() {
         return {
-            store
+            store,
         }
     },
     methods: {
+        //function for get flag image of language
         getFlag(lang){
             let src = ''
             if (lang == 'en') {
@@ -15,6 +16,24 @@ export default {
             }
             src = `https://flagsapi.com/${lang.toUpperCase()}/flat/64.png`
             return src
+        },
+        //funcion for get vote in stars
+        getStarVote(vote){
+            let stars = []
+            let n = Math.floor(vote) / 2;
+            for (let i = 0; i < n; i++) {
+                stars.push(1)
+            }
+            return stars
+        },
+        getStarEmpty(vote){
+            let empty = [];
+            let n = Math.floor(vote) / 2;
+            let length = 5 - n;
+            for (let i = 0; i < length; i++) {
+                empty.push(0)
+            }
+            return empty
         }
     },
 }
@@ -35,7 +54,17 @@ export default {
                     <!-- {{ film.original_language }} -->
                     Lingua originale: <img class="flag" :src="getFlag(film.original_language)" :alt="film.original_language">
                 </li>
-                <li>{{ film.vote_average }}</li>
+                <li>
+                    <!-- {{ film.vote_average }} -->
+                    <div class="star-container">
+                        <div class="star full" v-for="(star, index) in getStarVote(film.vote_average)" :key="index">
+                            X
+                        </div>
+                        <div class="star" v-for="(empty, index) in getStarEmpty(film.vote_average)" :key="index">
+                            O
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
