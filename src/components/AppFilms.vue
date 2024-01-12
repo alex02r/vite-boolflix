@@ -1,6 +1,10 @@
 <script>
+import AppVote from "./AppVote.vue";
 import { store } from "../store";
 export default {
+    components:{
+        AppVote
+    },
     data() {
         return {
             store,
@@ -16,26 +20,6 @@ export default {
             }
             src = `https://flagsapi.com/${lang.toUpperCase()}/flat/64.png`
             return src
-        },
-        //funcion for get vote in stars
-        getStarVote(vote){
-            let stars = []
-            let n = Math.floor(vote) / 2;
-            n = Math.round(n);
-            for (let i = 0; i < n; i++) {
-                stars.push(1)
-            }
-            return stars
-        },
-        getStarEmpty(vote){
-            let empty = [];
-            let n = Math.floor(vote) / 2;
-            n = Math.round(n)
-            let length = 5 - n;
-            for (let i = 0; i < length; i++) {
-                empty.push(0)
-            }
-            return empty
         }
     },
 }
@@ -57,15 +41,7 @@ export default {
                     Lingua originale: <img class="flag" :src="getFlag(film.original_language)" :alt="film.original_language">
                 </li>
                 <li>
-                    <!-- {{ film.vote_average }} -->
-                    <div class="star-container">
-                        <div class="star" v-for="(star, index) in getStarVote(film.vote_average)" :key="index">
-                            &#9733;
-                        </div>
-                        <div class="star" v-for="(empty, index) in getStarEmpty(film.vote_average)" :key="index">
-                            &#9734;
-                        </div>
-                    </div>
+                    <AppVote :vote_value="film.vote_average"/>
                 </li>
             </ul>
         </div>
@@ -74,10 +50,4 @@ export default {
 <style lang="scss" scoped>
     @use '../styles/partials/variables' as *;
     @use '../styles/generals.scss';
-    .star-container{
-        display: flex;
-        .star{
-            font-size: 20px;
-        }
-    }
 </style>
