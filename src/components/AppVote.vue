@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         
-        //funcion for get vote in stars
+        //funcion for get full star
         getStarVote(num){
             let stars = []
             let n = Math.floor(num) / 2;
@@ -21,6 +21,7 @@ export default {
             }
             return stars
         },
+        //function for get empty star
         getStarEmpty(num){
             let empty = [];
             let n = Math.floor(num) / 2;
