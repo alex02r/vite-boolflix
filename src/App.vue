@@ -1,13 +1,15 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppFilms from "./components/AppFilms.vue";
+import AppTv from './components/AppTv.vue';
 
 import { store } from "./store";
 import axios  from 'axios';
 export default {
   components: {
     AppHeader,
-    AppFilms
+    AppFilms,
+    AppTv
   },
   data() {
     return {
@@ -31,6 +33,7 @@ export default {
   <AppHeader @SearchTitle="search_title"/>
   <div class="container">
     <AppFilms/>
+    <AppTv/>
   </div>
 </template>
 <style lang="scss">
