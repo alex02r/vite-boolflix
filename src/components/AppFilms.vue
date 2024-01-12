@@ -11,7 +11,12 @@ export default {
 <template lang="">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-2" v-for="(film, index) in store.arrayFilms" :key="index">
-            <h3>{{ film.title}}</h3>
+            <ul class="list-unstyled">
+                <li>{{ film.title }}</li>
+                <li>{{ film.original_title }}</li>
+                <li>{{ film.original_language }}</li>
+                <li>{{ film.vote_average }}</li>
+            </ul>
         </div>
     </div>
 </template>
