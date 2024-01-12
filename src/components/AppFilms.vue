@@ -59,7 +59,7 @@ export default {
                 <li>
                     <!-- {{ film.vote_average }} -->
                     <div class="star-container">
-                        <div class="star full" v-for="(star, index) in getStarVote(film.vote_average)" :key="index">
+                        <div class="star" v-for="(star, index) in getStarVote(film.vote_average)" :key="index">
                             &#9733;
                         </div>
                         <div class="star" v-for="(empty, index) in getStarEmpty(film.vote_average)" :key="index">
@@ -76,5 +76,8 @@ export default {
     @use '../styles/generals.scss';
     .star-container{
         display: flex;
+        .star{
+            font-size: 20px;
+        }
     }
 </style>
