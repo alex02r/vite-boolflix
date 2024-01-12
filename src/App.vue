@@ -13,6 +13,7 @@ export default {
     }
   },
   methods: {
+    //function for request list of film at API
     search_title(){
       axios.get(`${store.urlFilms}${store.APIKey}&query=${store.searchValue}&language=it-IT`).then( response =>{
         console.log(response.data.results);

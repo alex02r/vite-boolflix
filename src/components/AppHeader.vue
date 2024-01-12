@@ -19,8 +19,9 @@ export default {
                 </div>
                 <div class="col-6">
                     <div class="input-group m-3">
+                        <!-- Searchbar with emit on App.vue -->
                         <input type="text" class="form-control" placeholder="Film, SerieTv" v-model="store.searchValue" @keyup.enter="$emit('SearchTitle')">
-                        <button class="btn btn-secondary">Cerca</button>
+                        <button class="btn btn-secondary" @click="$emit('SearchTitle')">Cerca</button>
                     </div>
                 </div>
             </div>
