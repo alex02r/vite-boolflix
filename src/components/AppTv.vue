@@ -16,19 +16,21 @@ export default {
     <div class="row">
         <div class="col-12"><h1>Serie TV</h1></div>
         <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
-            <div class="thumb">
-                <img :src="`http://image.tmdb.org/t/p/w500${series.poster_path}`" :alt="series.name">
+            <div class="info">
+                <div class="thumb">
+                    <img :src="`http://image.tmdb.org/t/p/w500${series.poster_path}`" :alt="series.name">
+                </div>
+                <ul class="list-unstyled">
+                    <li>{{ series.name }}</li>
+                    <li>{{ series.original_name }}</li>
+                    <li>
+                        Lingua originale: <img class="flag" :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
+                    </li>
+                    <li>
+                        <AppVote :vote_value="series.vote_average"/>
+                    </li>
+                </ul>
             </div>
-            <ul class="list-unstyled">
-                <li>{{ series.name }}</li>
-                <li>{{ series.original_name }}</li>
-                <li>
-                    Lingua originale: <img class="flag" :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
-                </li>
-                <li>
-                    <AppVote :vote_value="series.vote_average"/>
-                </li>
-            </ul>
         </div>
     </div>
 </template>

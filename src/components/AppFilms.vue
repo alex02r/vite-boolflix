@@ -51,5 +51,4 @@ export default {
 <style lang="scss" scoped>
     @use '../styles/generals.scss';
     @use '../styles/movies.scss';
-    @use '../styles/movies.scss';
 </style>
