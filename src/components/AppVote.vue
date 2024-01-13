@@ -51,6 +51,7 @@ export default {
         display: flex;
         .star{
             font-size: 20px;
+            color: goldenrod;
         }
     }
 </style>
