@@ -13,7 +13,7 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="row">
+    <div class="row g-2">
         <div class="col-12"><h1>Serie TV</h1></div>
         <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
             <div class="info">
@@ -28,6 +28,9 @@ export default {
                     </li>
                     <li>
                         <AppVote :vote_value="series.vote_average"/>
+                    </li>
+                    <li>
+                        {{ series.overview }}
                     </li>
                 </ul>
             </div>

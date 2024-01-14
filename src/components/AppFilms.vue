@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="row my-3">
+    <div class="row my-3 g-2">
         <div class="col-12">
             <h1>Film</h1>
         </div>
@@ -42,6 +42,9 @@ export default {
                     </li>
                     <li>
                         <AppVote :vote_value="film.vote_average"/>
+                    </li>
+                    <li>
+                        {{ film.overview }}
                     </li>
                 </ul>
             </div>
