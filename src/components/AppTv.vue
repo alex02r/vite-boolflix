@@ -20,19 +20,20 @@ export default {
                 <div class="thumb">
                     <img :src="`http://image.tmdb.org/t/p/w500${series.poster_path}`" :alt="series.name">
                 </div>
-                <ul class="list-unstyled">
-                    <li>{{ series.name }}</li>
-                    <li>{{ series.original_name }}</li>
-                    <li>
-                        Lingua originale: <img class="flag" :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
-                    </li>
-                    <li>
+                <div class="content">
+                    <div class="title">
+                        <h4>{{ series.name }}</h4>
+                        <span class="subtitle">{{ series.original_name }}</span>
                         <AppVote :vote_value="series.vote_average"/>
-                    </li>
-                    <li>
-                        {{ series.overview }}
-                    </li>
-                </ul>
+                        
+                    </div>
+                    <div class="description">
+                        <h6>Descrizione:</h6>
+                        <p>
+                            {{ series.overview }}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
