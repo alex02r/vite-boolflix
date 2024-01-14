@@ -34,7 +34,21 @@ export default {
                 <div class="thumb">
                     <img :src="`http://image.tmdb.org/t/p/w342${film.poster_path}`" :alt="film.title">
                 </div>
-                <ul class="list-unstyled">
+                <div class="content">
+                    <div class="title">
+                        <h4>{{ film.title }}</h4>
+                        <span class="subtitle">{{ film.original_title }}</span>
+                        <AppVote :vote_value="film.vote_average"/>
+                        
+                    </div>
+                    <div class="description">
+                        <h6>Descrizione:</h6>
+                        <p>
+                            {{ film.overview }}
+                        </p>
+                    </div>
+                </div>
+                <!-- <ul class="list-unstyled">
                     <li>{{ film.title }}</li>
                     <li>{{ film.original_title }}</li>
                     <li>
@@ -46,7 +60,7 @@ export default {
                     <li>
                         {{ film.overview }}
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
