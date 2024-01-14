@@ -20,6 +20,15 @@ export default {
             }
             src = `https://flagsapi.com/${lang.toUpperCase()}/flat/64.png`
             return src
+        },
+        getImage(img){
+            let string = '';
+            if(img == null){
+                string = '/src/assets/img/no-image.jpg';
+                return string
+            }
+            string = `http://image.tmdb.org/t/p/w500${img}`;
+            return string;
         }
     },
 }
@@ -32,7 +41,7 @@ export default {
         <div class="col-4 col-md-3 col-lg-2" v-for="(film, index) in store.arrayFilms" :key="index">
             <div class="info">
                 <div class="thumb">
-                    <img :src="`http://image.tmdb.org/t/p/w342${film.poster_path}`" :alt="film.title">
+                    <img :src="getImage(film.poster_path)" :alt="film.title">
                 </div>
                 <div class="content">
                     <div class="title">
