@@ -10,6 +10,17 @@ export default {
             store
         }
     },
+    methods: {
+        getImage(img){
+            let string = '';
+            if(img == null){
+                string = '/src/assets/img/no-image.jpg';
+                return string
+            }
+            string = `http://image.tmdb.org/t/p/w500${img}`;
+            return string;
+        }
+    },
 }
 </script>
 <template lang="">
@@ -18,7 +29,7 @@ export default {
         <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
             <div class="info">
                 <div class="thumb">
-                    <img :src="`http://image.tmdb.org/t/p/w500${series.poster_path}`" :alt="series.name">
+                    <img :src="getImage(series.poster_path)" :alt="series.name">
                 </div>
                 <div class="content">
                     <div class="title">
