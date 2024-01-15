@@ -5,13 +5,14 @@ export default {
     data() {
         return {
             store,
-            current: 0, 
-            autoscrollFilm: null,
+            currentFilm: 0,
+            currentSeries: 0, 
+            autoscroll: null,
         }
     },
     created() {
         this.getHome();
-        this.autoscroll(this.autoscrollFilm)
+        this.setAutoscroll()
     },
     methods: {
         getHome(){
@@ -25,21 +26,21 @@ export default {
             })
         },
         nextfilm(){
-            if (this.current == store.popularFilms.length - 1) {
-                this.current = 0;
+            if (this.currentFilm == store.popularFilms.length - 1) {
+                this.currentFilm = 0;
             }else{
-                this.current++;
+                this.currentFilm++;
             }
         },
         nextseries(){
-            if (this.current == store.popularSeries.length - 1) {
-                this.current = 0;
+            if (this.currentSeries == store.popularSeries.length - 1) {
+                this.currentSeries = 0;
             }else{
-                this.current++;
+                this.currentSeries++;
             }
         },
-        autoscroll(interval){
-            interval = setInterval(()=>{
+        setAutoscroll(){
+            this.autoscroll = setInterval(()=>{
                 this.nextfilm();
                 this.nextseries();
             },8000)
@@ -51,15 +52,15 @@ export default {
     <h1>Film più visti</h1>
     <div class="home-content">
         <div class="slider">
-            <img :src="`https://image.tmdb.org/t/p/w1280${store.popularFilms[current].backdrop_path}`" :alt="store.popularFilms[current].title">
-            <h1>{{ store.popularFilms[current].title }}</h1>
+            <img :src="`https://image.tmdb.org/t/p/w1280${store.popularFilms[currentFilm].backdrop_path}`" :alt="store.popularFilms[currentFilm].title">
+            <h1>{{ store.popularFilms[currentFilm].title }}</h1>
         </div>
     </div>
     <h1>Serie Tv più viste</h1>
     <div class="home-content">
         <div class="slider">
-            <img :src="`https://image.tmdb.org/t/p/w1280${store.popularSeries[current].backdrop_path}`" :alt="store.popularSeries[current].title">
-            <h1>{{ store.popularSeries[current].name }}</h1>
+            <img :src="`https://image.tmdb.org/t/p/w1280${store.popularSeries[currentSeries].backdrop_path}`" :alt="store.popularSeries[currentSeries].name">
+            <h1>{{ store.popularSeries[currentSeries].name }}</h1>
         </div>
     </div>
 
