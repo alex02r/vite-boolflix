@@ -15,11 +15,13 @@ export default {
         },
         //function for visualizate films most popular
         getFilms(){
+            store.searched = false;
             store.showFilm = true;
             store.showSeries = false;
         },
         //function for visualizate Series most popular
         getSeries(){
+            store.searched = false;
             store.showSeries = true;
             store.showFilm = false;
         }
@@ -32,7 +34,7 @@ export default {
             <div class="row justify-content-between">
                 <div class="col-8">
                     <div class="d-flex h-100 gap-3">
-                        <div class="logo">
+                        <div class="logo" @click="getHome()">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="logo netflix">
                         </div>
                         <ul class="list-header">
