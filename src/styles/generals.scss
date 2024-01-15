@@ -16,3 +16,19 @@ img{
 .flag{
     width: 20px;
 }
+/* CSS for scrollbar */
+*::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: $black;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+*::-webkit-scrollbar-thumb:active {
+    background-color: $secondary;
+  }
