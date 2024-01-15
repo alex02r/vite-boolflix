@@ -11,20 +11,9 @@ export default {
         }
     },
     created() {
-        this.getHome();
         this.setAutoscroll()
     },
     methods: {
-        getHome(){
-            store.popularFilms = [];
-            store.popularSeries = [];
-            axios.get(`${store.urlPopularFilms}${store.APIKey}&language=it-IT`).then(result =>{
-                store.popularFilms = result.data.results;
-            })
-            axios.get(`${store.urlPopularTV}${store.APIKey}&language=it-IT`).then(res =>{
-                store.popularSeries = res.data.results;
-            })
-        },
         nextfilm(){
             if (this.currentFilm == store.popularFilms.length - 1) {
                 this.currentFilm = 0;

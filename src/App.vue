@@ -18,6 +18,9 @@ export default {
       store
     }
   },
+  created() {
+    this.getHome()
+  },
   methods: {
     //function for request list of film and tv series at API
     search_title(){
@@ -39,6 +42,16 @@ export default {
         /* console.log(response.data.results); */
         store.arrayTv = data.data.results;
       })
+    },
+    getHome(){
+        store.popularFilms = [];
+        store.popularSeries = [];
+        axios.get(`${store.urlPopularFilms}${store.APIKey}&language=it-IT`).then(result =>{
+            store.popularFilms = result.data.results;
+        })
+        axios.get(`${store.urlPopularTV}${store.APIKey}&language=it-IT`).then(res =>{
+            store.popularSeries = res.data.results;
+        })
     }
   },
 }
