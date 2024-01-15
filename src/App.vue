@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppHome from './components/AppHome.vue';
+import AppSearched from './components/AppSearched.vue';
 import AppFilms from "./components/AppFilms.vue";
 import AppTv from './components/AppTv.vue';
 
@@ -10,6 +11,7 @@ export default {
   components: {
     AppHeader,
     AppHome,
+    AppSearched,
     AppFilms,
     AppTv
   },
@@ -58,11 +60,20 @@ export default {
 </script>
 <template lang="">
   <AppHeader @SearchTitle="search_title"/>
-  <AppHome v-if="!store.searched"/>
+  
+  <AppSearched/>
+  <AppHome/>
+ <!--  <AppHeader @SearchTitle="search_title"/>
+  {{ store.searched }}
+  <AppHome v-if="!store.searched"/> -->
+
+  <!-- <AppSearched v-else/> -->
+  <!-- 
   <div class="container" v-else>
     <AppFilms/>
     <AppTv />
   </div>
+ -->
   
 </template>
 <style lang="scss">
