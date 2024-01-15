@@ -2,28 +2,38 @@
 h1{
     color: $white;
 }
+.flip-card{
+    width: 100%;
+    height: 320px;
+    perspective: 1000px;
+}
 .info{
     position: relative;
-    width: 100%;
-    cursor: pointer;
-}
-.content{
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.5s ease-in;
     height: 100%;
     width: 100%;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    transform-style: preserve-3d;
+}
+.thumb, .content{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+}
+.content{
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: rotateY(180deg);
     overflow-y: auto;
     padding: 10px;
+    transform: rotateY(180deg);
     .title{
         .subtitle{
             color: rgb(147, 147, 147);
         }
     }
 }
-.info:hover .content{
-    background-color: rgba(255, 255, 255, 0.95);
-    opacity: 100;
+.flip-card:hover .info{
+    transform: rotateY(180deg);
 }
