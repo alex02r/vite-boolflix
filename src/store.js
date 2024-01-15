@@ -5,7 +5,7 @@ export const store = reactive({
     urlFilms: 'https://api.themoviedb.org/3/search/movie?api_key=',
     urlTv: 'https://api.themoviedb.org/3/search/tv?api_key=',
     urlPopularFilms: 'https://api.themoviedb.org/3/movie/popular?api_key=',
-    urlPopularTV: 'https://api.themoviedb.org/3/tv/popular',
+    urlPopularTV: 'https://api.themoviedb.org/3/tv/popular?api_key=',
     searchValue: '',
     arrayFilms: [],
     arrayTv: [],
