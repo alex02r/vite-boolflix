@@ -1,5 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import AppHome from './components/AppHome.vue';
 import AppFilms from "./components/AppFilms.vue";
 import AppTv from './components/AppTv.vue';
 
@@ -8,6 +9,7 @@ import axios  from 'axios';
 export default {
   components: {
     AppHeader,
+    AppHome,
     AppFilms,
     AppTv
   },
@@ -43,10 +45,11 @@ export default {
 </script>
 <template lang="">
   <AppHeader @SearchTitle="search_title"/>
-  <div class="container">
-    <AppFilms v-if="store.searched"/>
-    <AppTv v-if="store.searched"/>
+  <div class="container" v-if="store.searched">
+    <AppFilms/>
+    <AppTv/>
   </div>
+  <AppHome v-else/>
 </template>
 <style lang="scss">
   @use './styles/generals.scss';
