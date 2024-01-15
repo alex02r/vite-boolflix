@@ -6,6 +6,21 @@ export default {
             store
         }
     },
+    methods: {
+        getHome(){
+            store.searched = false;
+            store.showFilm = true;
+            store.showSeries = true;
+        },
+        getFilms(){
+            store.showFilm = true;
+            store.showSeries = false;
+        },
+        getSeries(){
+            store.showSeries = true;
+            store.showFilm = false;
+        }
+    },
 }
 </script>
 <template lang="">
@@ -18,9 +33,9 @@ export default {
                             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="logo netflix">
                         </div>
                         <ul class="list-header">
-                            <li>Home</li>
-                            <li>Film</li>
-                            <li>Serie TV</li>
+                            <li @click="getHome()">Home</li>
+                            <li @click="getFilms()">Film</li>
+                            <li @click="getSeries()">Serie TV</li>
                             <li>La mia lista</li>
                         </ul>
                     </div>
