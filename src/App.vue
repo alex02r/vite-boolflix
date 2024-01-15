@@ -60,21 +60,8 @@ export default {
 </script>
 <template lang="">
   <AppHeader @SearchTitle="search_title"/>
-  
   <AppSearched/>
   <AppHome/>
- <!--  <AppHeader @SearchTitle="search_title"/>
-  {{ store.searched }}
-  <AppHome v-if="!store.searched"/> -->
-
-  <!-- <AppSearched v-else/> -->
-  <!-- 
-  <div class="container" v-else>
-    <AppFilms/>
-    <AppTv />
-  </div>
- -->
-  
 </template>
 <style lang="scss">
   @use './styles/generals.scss';
