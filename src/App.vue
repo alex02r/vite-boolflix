@@ -2,8 +2,6 @@
 import AppHeader from './components/AppHeader.vue';
 import AppHome from './components/AppHome.vue';
 import AppSearched from './components/AppSearched.vue';
-import AppFilms from "./components/AppFilms.vue";
-import AppTv from './components/AppTv.vue';
 
 import { store } from "./store";
 import axios  from 'axios';
@@ -11,9 +9,7 @@ export default {
   components: {
     AppHeader,
     AppHome,
-    AppSearched,
-    AppFilms,
-    AppTv
+    AppSearched
   },
   data() {
     return {
