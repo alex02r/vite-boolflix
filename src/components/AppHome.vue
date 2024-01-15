@@ -24,8 +24,15 @@ export default {
                 store.popularSeries = res.data.results;
             })
         },
-        nextfigure(){
+        nextfilm(){
             if (this.current == store.popularFilms.length - 1) {
+                this.current = 0;
+            }else{
+                this.current++;
+            }
+        },
+        nextseries(){
+            if (this.current == store.popularSeries.length - 1) {
                 this.current = 0;
             }else{
                 this.current++;
@@ -33,7 +40,8 @@ export default {
         },
         autoscroll(interval){
             interval = setInterval(()=>{
-                this.nextfigure();
+                this.nextfilm();
+                this.nextseries();
             },8000)
         },
     },
@@ -41,18 +49,25 @@ export default {
 </script>
 <template lang="">
     <h1>Film più visti</h1>
-    <div class="home">
-        
+    <div class="home-content">
         <div class="slider">
             <img :src="`https://image.tmdb.org/t/p/w1280${store.popularFilms[current].backdrop_path}`" :alt="store.popularFilms[current].title">
             <h1>{{ store.popularFilms[current].title }}</h1>
         </div>
     </div>
+    <h1>Serie Tv più viste</h1>
+    <div class="home-content">
+        <div class="slider">
+            <img :src="`https://image.tmdb.org/t/p/w1280${store.popularSeries[current].backdrop_path}`" :alt="store.popularSeries[current].title">
+            <h1>{{ store.popularSeries[current].name }}</h1>
+        </div>
+    </div>
+
 </template>
 <style lang="scss" scoped>
     @use '../styles/generals.scss';
     @use '../styles/movies.scss';
-    .home{
+    .home-content{
         display: flex;
         align-items: center;
         justify-content: center;
