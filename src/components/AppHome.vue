@@ -40,8 +40,9 @@ export default {
 }
 </script>
 <template lang="">
+    <h1>Film più visti</h1>
     <div class="home">
-        <h1>Film più visti</h1>
+        
         <div class="slider">
             <img :src="`https://image.tmdb.org/t/p/w1280${store.popularFilms[current].backdrop_path}`" :alt="store.popularFilms[current].title">
             <h1>{{ store.popularFilms[current].title }}</h1>
@@ -51,4 +52,20 @@ export default {
 <style lang="scss" scoped>
     @use '../styles/generals.scss';
     @use '../styles/movies.scss';
+    .home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .slider{
+        
+        position: relative;
+        width: 60%;
+        h1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 </style>
