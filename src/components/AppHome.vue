@@ -61,7 +61,12 @@ export default {
             <div class="home-content">
                 <div class="slider">
                     <img :src="`https://image.tmdb.org/t/p/w1280${store.popularSeries[currentSeries].backdrop_path}`" :alt="store.popularSeries[currentSeries].name">
-                    <h1>{{ store.popularSeries[currentSeries].name }}</h1>
+                    <div class="img-info">
+                        <h1>{{ store.popularSeries[currentSeries].name }}</h1>
+                        <p>
+                            {{ store.popularSeries[currentSeries].overview }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <h5 class="text-white">Tutte le serieTV più visti</h5>
