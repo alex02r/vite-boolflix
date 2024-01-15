@@ -7,15 +7,18 @@ export default {
         }
     },
     methods: {
+        //function for visualizate home page
         getHome(){
             store.searched = false;
             store.showFilm = true;
             store.showSeries = true;
         },
+        //function for visualizate films most popular
         getFilms(){
             store.showFilm = true;
             store.showSeries = false;
         },
+        //function for visualizate Series most popular
         getSeries(){
             store.showSeries = true;
             store.showFilm = false;
