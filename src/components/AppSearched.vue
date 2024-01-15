@@ -78,7 +78,7 @@ export default {
                                 <h4>{{ series.name }}</h4>
                                 <span class="subtitle">{{ series.original_name }}</span>
                                 <AppVote :vote_value="series.vote_average"/>
-                                
+                                Lingua originale: <img :src="`https://flagsapi.com/${series.origin_country}/flat/64.png`" :alt="series.origin_country">
                             </div>
                             <div class="description">
                                 <h6>Descrizione:</h6>
