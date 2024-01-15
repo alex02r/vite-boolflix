@@ -45,11 +45,12 @@ export default {
 </script>
 <template lang="">
   <AppHeader @SearchTitle="search_title"/>
-  <div class="container" v-if="store.searched">
+  <AppHome v-if="!store.searched"/>
+  <div class="container" v-else>
     <AppFilms/>
-    <AppTv/>
+    <AppTv />
   </div>
-  <AppHome v-else/>
+  
 </template>
 <style lang="scss">
   @use './styles/generals.scss';
