@@ -43,7 +43,12 @@ export default {
             <div class="home-content">
                 <div class="slider">
                     <img :src="`https://image.tmdb.org/t/p/w1280${store.popularFilms[currentFilm].backdrop_path}`" :alt="store.popularFilms[currentFilm].title">
-                    <h1>{{ store.popularFilms[currentFilm].title }}</h1>
+                    <div class="img-info">
+                        <h1>{{ store.popularFilms[currentFilm].title }}</h1>
+                        <p>
+                            {{ store.popularFilms[currentSeries].overview }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <h5 class="text-white">Tutti i film più visti</h5>
@@ -74,14 +79,20 @@ export default {
         justify-content: center;
     }
     .slider{
-        
         position: relative;
         width: 60%;
-        h1{
+        .img-info{
+            width: 50%;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 70%;
+            left: 10px;
+            transform: translateY(-70%);
+            h1{
+                text-shadow: 0 0 10px #FFFFFF;
+            }
+            p{
+                text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+            }
         }
     }
     .lists{
