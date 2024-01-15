@@ -1,5 +1,4 @@
 <script>
-import axios from "axios";
 import { store } from "../store";
 export default {
     data() {
@@ -33,13 +32,13 @@ export default {
                 this.nextfilm();
                 this.nextseries();
             },8000)
-        },
-    },
+        }
+    }
 }
 </script>
 <template lang="">
-    <div class="container-fluid">
-        <div class="" v-if="store.showFilm">
+    <div class="container-fluid" v-if="!store.searched">
+        <div class="text-white" v-if="store.showFilm">
             <h1>Film più visti</h1>
             <div class="home-content">
                 <div class="slider">
@@ -52,7 +51,7 @@ export default {
                 <img v-for="(film, index) in store.popularFilms" :key="index" :src="`https://image.tmdb.org/t/p/w500${film.poster_path}`" :alt="film.title">
             </div>
         </div>
-        <div class="" v-if="store.showSeries">
+        <div class="text-white">
             <h1>Serie Tv più viste</h1>
             <div class="home-content">
                 <div class="slider">
@@ -69,7 +68,6 @@ export default {
 </template>
 <style lang="scss" scoped>
     @use '../styles/generals.scss';
-    @use '../styles/movies.scss';
     .home-content{
         display: flex;
         align-items: center;
