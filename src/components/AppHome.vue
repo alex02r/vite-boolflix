@@ -46,7 +46,7 @@ export default {
                     <div class="img-info">
                         <h1>{{ store.popularFilms[currentFilm].title }}</h1>
                         <p>
-                            {{ store.popularFilms[currentSeries].overview }}
+                            {{ store.popularFilms[currentFilm].overview }}
                         </p>
                     </div>
                 </div>
