@@ -38,8 +38,10 @@ export default {
         <div class="row my-3 g-2">
             <div class="col-12">
                 <h1>Film</h1>
+                <h5 class="text-white" v-if="store.arrayFilms.length == 0">Nessun Film trovato per: "{{ store.searchValue }}"</h5>
             </div>
             <div class="col-4 col-md-3 col-lg-2" v-for="(film, index) in store.arrayFilms" :key="index">
+                
                 <div class="flip-card">
                     <div class="info">
                         <div class="thumb">
@@ -66,7 +68,10 @@ export default {
     </div>
     <div class="container" v-if="store.searched">
         <div class="row g-2">
-            <div class="col-12"><h1>Serie TV</h1></div>
+            <div class="col-12">
+                <h1>Serie TV</h1>
+                <h5 class="text-white" v-if="store.arrayTv.length == 0"> Nessuna serie TV trovata per: {{ store.searchValue }}</h5>
+            </div>
             <div class="col-4 col-md-3 col-lg-2" v-for="(series, index) in store.arrayTv" :key="index">
                 <div class="flip-card">
                     <div class="info">
