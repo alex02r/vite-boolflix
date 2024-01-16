@@ -56,7 +56,7 @@ export default {
                 <img v-for="(film, index) in store.popularFilms" :key="index" :src="`https://image.tmdb.org/t/p/w500${film.poster_path}`" :alt="film.title">
             </div>
         </div>
-        <div class="text-white">
+        <div class="text-white" v-if="store.showSeries">
             <h1>Serie Tv più viste</h1>
             <div class="home-content">
                 <div class="slider">

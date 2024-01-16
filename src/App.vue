@@ -33,7 +33,6 @@ export default {
         /* console.log(response.data.results); */
         store.arrayFilms = response.data.results;
       })
-
       //serie tv list
       store.arrayTv = []
       axios.get(`${store.urlTv}${store.APIKey}&language=it-IT&query=${store.searchValue}`).then( data =>{
