@@ -45,7 +45,7 @@ export default {
                         </ul>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-4 col-md-2">
                     <div class="input-group input-group-sm d-flex align-items-center h-100">
                         <!-- Searchbar with emit on App.vue -->
                         <input type="text" class="form-control" placeholder="Film, SerieTv" v-model="store.searchValue" @keyup.enter="$emit('SearchTitle')">

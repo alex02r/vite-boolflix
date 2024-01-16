@@ -85,7 +85,6 @@ export default {
     }
     .slider{
         position: relative;
-        width: 60%;
         .img-info{
             width: 50%;
             position: absolute;
@@ -96,6 +95,8 @@ export default {
                 text-shadow: 0 0 10px #FFFFFF;
             }
             p{
+                height: 150px;
+                overflow-y: auto;
                 text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
             }
         }
